@@ -3,6 +3,7 @@ import { Deck } from "./interface/Deck";
 import { PlayingCard } from "./PlayingCard";
 
 export class PlayingDeck implements Deck {
+  readonly #NUMBER_OF_CARDS = 52;
   #currentCard: number;
   cards: PlayingCard[];
   constructor() {
@@ -10,16 +11,38 @@ export class PlayingDeck implements Deck {
     this.cards = [];
     const suits = Object.values(CardSuit);
     const names = Object.values(CardName);
-    suits.map((suit) => {
-      names.map((cardName) => {
-        this.cards.push(new PlayingCard(suit, cardName));
+    suits.forEach((cardSuit) => {
+      names.forEach((cardName) => {
+        this.cards.push(new PlayingCard(cardSuit, cardName));
       });
     });
-    // Define a new playing card type, for Joker
   }
 
-  suffle(): void {}
-  dealOneCard(): PlayingCard | void {}
+  // Define a new playing card type, for Joker
+  shuffle(): void {
+    // how is shuffling considerred ?
+    const nrOfShuffles = Math.floor(Math.random() * this.#NUMBER_OF_CARDS) + 1; // 0 <= 52 x Math.random() <= 52. Adding 1 to make sure we shuffle at least once
+    for (let i = nrOfShuffles; i > 0; i--) {
+      const randomFirstCard = this.cards[
+        Math.floor(Math.random() * this.#NUMBER_OF_CARDS)
+      ]!;
+      const randomSecondCard = this.cards[
+        Math.floor(Math.random() * this.#NUMBER_OF_CARDS)
+      ]!;
+      const temp = randomFirstCard;
+      this.cards[this.cards.indexOf(randomFirstCard)] = randomSecondCard;
+      this.cards[this.cards.indexOf(randomSecondCard)] = temp;
+    }
+
+    this.#currentCard = 0
+  }
+  dealOneCard(): PlayingCard | undefined {
+    if (this.#currentCard > this.#NUMBER_OF_CARDS) {
+      return;
+    }
+    this.#currentCard++;
+    return this.cards[this.#currentCard - 1];
+  }
   toString(): string {
     return this.cards.reduce((prev, cur) => {
       const addNewLine = (prev: string) => {
@@ -29,6 +52,3 @@ export class PlayingDeck implements Deck {
     }, "");
   }
 }
-
-const myDeck = new PlayingDeck();
-console.log(myDeck.toString());
