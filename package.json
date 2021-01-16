@@ -4,7 +4,7 @@
   "description": "card deck",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch src/**/*.ts --exec ts-node src/Card.ts",
+    "dev": "nodemon --watch src/**/*.ts --exec ts-node src/PlayingCard.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
