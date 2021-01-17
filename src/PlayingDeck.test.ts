@@ -2,7 +2,7 @@ import { PlayingCard } from "./PlayingCard";
 import { PlayingDeck } from "./PlayingDeck";
 
 test("should create a 52 card deck", () => {
-  expect(new PlayingDeck().cards.length).toBe(52);
+  expect(new PlayingDeck().DECK_SIZE).toBe(52);
 });
 
 test("should shuffle the deck", () => {
@@ -16,21 +16,20 @@ test("should deal 52 cards", () => {
   const testDeck = new PlayingDeck();
   let cardsDealt: PlayingCard[] = [];
 
-  for (let i = 0; i < testDeck.cards.length; i++) {
+  for (let i = 0; i < testDeck.DECK_SIZE; i++) {
     const card = testDeck.dealOneCard();
     if (card) cardsDealt.push(card);
   }
 
-  expect(cardsDealt.length).toBe(testDeck.cards.length);
+  expect(cardsDealt.length).toBe(testDeck.DECK_SIZE);
 });
 
 test("should return undefined after dealing 52 cards", () => {
   const testDeck = new PlayingDeck();
 
-  for (let i = 0; i < testDeck.cards.length; i++) {
+  for (let i = 0; i < testDeck.DECK_SIZE; i++) {
     testDeck.dealOneCard();
   }
   const fiftyThirdCard = testDeck.dealOneCard();
-
-  expect(fiftyThirdCard).toBe(undefined);
+  expect(fiftyThirdCard).toEqual(undefined);
 });
