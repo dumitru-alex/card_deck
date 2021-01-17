@@ -17,7 +17,7 @@ export class PlayingDeck implements Deck {
   }
 
   get cards(): PlayingCard[] {
-      return this.#cards
+    return this.#cards;
   }
   // Define a new playing card type, for Joker
   shuffle(): void {
@@ -36,7 +36,7 @@ export class PlayingDeck implements Deck {
     }
   }
   dealOneCard(): PlayingCard | undefined {
-      return this.#cards.pop();
+    return this.#cards.pop();
   }
   toString(): string {
     return this.#cards.reduce((prev, cur) => {
