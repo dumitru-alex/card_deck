@@ -20,7 +20,7 @@ export class PlayingDeck implements Deck {
     return this.#cards;
   }
   shuffle(): void {
-    //  Fisher-Yates (Richard Durstenfeld version). See: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+    //  Fisher-Yates shuffling algorithm (Richard Durstenfeld's version). See: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
     for (let i = this.#cards.length - 1; i > 0; i--) {
       console.log(i);
       const j: number = Math.floor(Math.random() * (i + 1));
