@@ -1,22 +1,22 @@
-import { CardSuit, CardName, Card } from "./interface/Card";
+import { CardSuit, CardValue, Card } from "./interface/Card";
 
 export class PlayingCard implements Card {
   #suit: CardSuit;
-  #rank: CardName;
+  #value: CardValue;
 
-  constructor(suit: CardSuit, rank: CardName) {
+  constructor(suit: CardSuit, value: CardValue) {
     this.#suit = suit;
-    this.#rank = rank;
+    this.#value = value;
   }
 
   get suit(): CardSuit {
     return this.#suit;
   }
-  get rank(): CardName {
-    return this.#rank;
+  get value(): CardValue {
+    return this.#value;
   }
 
   toString(): string {
-    return `${this.#rank} of ${this.#suit}`;
+    return `${this.#value} of ${this.#suit}`;
   }
 }

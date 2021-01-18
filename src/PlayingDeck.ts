@@ -1,4 +1,4 @@
-import { CardName, CardSuit } from "./interface/Card";
+import { CardValue, CardSuit } from "./interface/Card";
 import { Deck } from "./interface/Deck";
 import { PlayingCard } from "./PlayingCard";
 
@@ -8,7 +8,7 @@ export class PlayingDeck implements Deck {
   constructor() {
     this.#cards = [];
     const suits = Object.values(CardSuit);
-    const names = Object.values(CardName);
+    const names = Object.values(CardValue);
     suits.forEach((cardSuit) => {
       names.forEach((cardName) => {
         this.#cards.push(new PlayingCard(cardSuit, cardName));
@@ -19,11 +19,11 @@ export class PlayingDeck implements Deck {
   get cards(): PlayingCard[] {
     return this.#cards;
   }
+
   shuffle(): void {
     //  Fisher-Yates shuffling algorithm (Richard Durstenfeld's version). See: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
     for (let i = this.#cards.length - 1; i > 0; i--) {
-      console.log(i);
-      const j: number = Math.floor(Math.random() * (i + 1));
+      const j = Math.floor(Math.random() * (i + 1));
       [this.#cards[i], this.#cards[j]] = [this.#cards[j]!, this.#cards[i]!];
     }
   }
@@ -41,5 +41,3 @@ export class PlayingDeck implements Deck {
     }, "");
   }
 }
-
-// Define a new playing card type, for Joker
