@@ -1,6 +1,6 @@
-import { PlayingDeck } from './PlayingDeck';
+import { CardDeck } from './CardDeck';
 
-const myDeck = new PlayingDeck();
+const myDeck = new CardDeck();
 
 for (let i = 0; i < myDeck.DECK_SIZE; i++) {
   const card = myDeck.dealOneCard();

@@ -1,11 +1,9 @@
 export enum CardSuit {
-  Diamonds = 'Diamonds',
-  Clubs = 'Clubs',
-  Hearts = 'Hearts',
-  Spades = 'Spades',
+  Diamonds = "Diamonds",
+  Clubs = "Clubs",
+  Hearts = "Hearts",
+  Spades = "Spades",
 }
-
-// export type CardValue = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13
 
 export enum CardValue {
   Ace = 1,
@@ -22,24 +20,8 @@ export enum CardValue {
   Queen = 12,
   King = 13,
 }
-export enum CardFace {
-  'Ace' = 'Ace',
-  // Two = "Two",
-  // Three = "Three",
-  // Four = "Four",
-  // Five = "Five",
-  // Six = "Six",
-  // Seven = "Seven",
-  // Eight = "Eight",
-  // Nine = "Nine",
-  // Ten = "Ten",
-  'Jack' = 'Jack',
-  'Queen' = 'Queen',
-  'King' = 'King',
-}
 
 export interface Card {
   suit: CardSuit;
   value: CardValue;
-  // face?: CardFace;
 }

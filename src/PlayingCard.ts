@@ -1,19 +1,12 @@
-import {
-  CardSuit,
-  CardValue,
-  Card,
-  // CardFace
-} from './interface/Card';
+import { CardSuit, CardValue, Card } from "./interface/Card";
 
 export class PlayingCard implements Card {
   #suit: CardSuit;
   #value: CardValue;
-  // #face: CardFace | undefined;
 
   constructor(suit: CardSuit, value: CardValue) {
     this.#suit = suit;
     this.#value = value;
-    // this.#face = CardValue[this.#value] in Object.keys(CardFace) ?  CardValue[this.#value] as CardFace: undefined;
   }
 
   get suit(): CardSuit {
@@ -23,11 +16,7 @@ export class PlayingCard implements Card {
     return this.#value;
   }
 
-  // get face(): CardFace | undefined {
-  //   return this.#face;
-  // }
   toString(): string {
-    // return `${this.#face ? this.#face : this.#value} of ${this.#suit}`;
     return `${this.#value} of ${this.#suit}`;
   }
 }
