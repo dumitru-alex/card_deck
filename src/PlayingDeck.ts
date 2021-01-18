@@ -1,6 +1,6 @@
-import { CardValue, CardSuit } from "./interface/Card";
-import { Deck } from "./interface/Deck";
-import { PlayingCard } from "./PlayingCard";
+import { CardSuit } from './interface/Card';
+import { Deck } from './interface/Deck';
+import { PlayingCard } from './PlayingCard';
 
 export class PlayingDeck implements Deck {
   readonly DECK_SIZE = 52;
@@ -8,11 +8,10 @@ export class PlayingDeck implements Deck {
   constructor() {
     this.#cards = [];
     const suits = Object.values(CardSuit);
-    const names = Object.values(CardValue);
-    suits.forEach((cardSuit) => {
-      names.forEach((cardName) => {
-        this.#cards.push(new PlayingCard(cardSuit, cardName));
-      });
+    suits.forEach(cardSuit => {
+      for (let value = 13; value > 0; value--) {
+        this.#cards.push(new PlayingCard(cardSuit, value));
+      }
     });
   }
 
@@ -35,9 +34,9 @@ export class PlayingDeck implements Deck {
   toString(): string {
     return this.#cards.reduce((prev, cur) => {
       const addNewLine = (prev: string) => {
-        return prev.length > 0 ? "\n" : "";
+        return prev.length > 0 ? '\n' : '';
       };
       return prev + `${addNewLine(prev)}` + cur.toString();
-    }, "");
+    }, '');
   }
 }

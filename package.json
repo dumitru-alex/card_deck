@@ -4,7 +4,7 @@
   "description": "card deck",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch src/**/*.ts --exec ts-node src/PlayingDeck.ts",
+    "dev": "nodemon --watch src/**/*.ts --exec ts-node src/app.ts",
     "build": "tsc",
     "test": "jest",
     "test:watch": "jest --watch"

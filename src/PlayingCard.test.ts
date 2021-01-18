@@ -3,17 +3,17 @@ import { PlayingCard } from "./PlayingCard";
 
 test("should create a card", () => {
   expect(new PlayingCard(CardSuit.Clubs, CardValue.Ace).toString()).toEqual(
-    "Ace of Clubs"
+    "1 of Clubs"
   );
 });
 
-test("should have a suit property", () => {
+test("should have a value property", () => {
     expect(new PlayingCard(CardSuit.Clubs, CardValue.Ace).value).toEqual(
-      "Ace"
+      1
     );
 })
 
-test("should have a rank property", () => {
+test("should have a suit property", () => {
     expect(new PlayingCard(CardSuit.Clubs, CardValue.Ace).suit).toEqual(
       "Clubs"
     );
