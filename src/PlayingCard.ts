@@ -12,11 +12,11 @@ export class PlayingCard implements Card {
   get suit(): CardSuit {
     return this.#suit;
   }
-  get value(): number {
+  get value(): CardValue {
     return this.#value;
   }
 
   toString(): string {
-    return `${this.#value} of ${this.#suit}`;
+    return `${CardValue[this.#value]} of ${this.#suit}`;
   }
 }

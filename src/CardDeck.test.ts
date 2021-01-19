@@ -1,18 +1,18 @@
-import { PlayingCard } from './PlayingCard';
-import { CardDeck } from './CardDeck';
+import { PlayingCard } from "./PlayingCard";
+import { CardDeck } from "./CardDeck";
 
-test('should create a 52 card deck', () => {
+test("should create a 52 card deck", () => {
   expect(new CardDeck().DECK_SIZE).toBe(52);
 });
 
-test('should shuffle the deck', () => {
+test("should shuffle the deck", () => {
   const testDeck = new CardDeck();
   const shuffledDeck = new CardDeck();
   shuffledDeck.shuffle();
   expect(testDeck.toString()).not.toBe(shuffledDeck.toString());
 });
 
-test('should deal 52 cards', () => {
+test("should deal 52 cards", () => {
   const testDeck = new CardDeck();
   let cardsDealt: PlayingCard[] = [];
 
@@ -24,7 +24,7 @@ test('should deal 52 cards', () => {
   expect(cardsDealt.length).toBe(testDeck.DECK_SIZE);
 });
 
-test('should return undefined after dealing 52 cards', () => {
+test("should return undefined after dealing 52 cards", () => {
   const testDeck = new CardDeck();
   for (let i = 0; i < testDeck.DECK_SIZE; i++) {
     testDeck.dealOneCard();
